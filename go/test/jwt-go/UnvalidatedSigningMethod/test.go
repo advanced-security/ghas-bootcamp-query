@@ -30,3 +30,19 @@ func validated_case() {
 		return
 	}
 }
+
+func inverted_validated_case() {
+	token, err := jwt.ParseWithClaims(tokenString, &OctoClaims{}, func(token *jwt.Token) (interface{}, error) {
+
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); ok {
+			return []byte(configuration.Secret), nil
+		}
+		return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+	})
+
+	if err != nil {
+		log.Printf("AuthN: Invalid token %s", err)
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+}

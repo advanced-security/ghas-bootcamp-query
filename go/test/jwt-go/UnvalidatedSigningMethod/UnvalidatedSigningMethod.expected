@@ -1,1 +1,1 @@
-tbd
+| test.go:6:64:8:2 | function literal | Key validation function doesn't verify $@ signing method | test.go:6:69:6:73 | token | token |
