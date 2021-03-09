@@ -1,0 +1,4 @@
+name: ghas-bootcamp-go-tests
+version: 0.0.0
+libraryPathDependencies: ghas-bootcamp-go
+extractor: go

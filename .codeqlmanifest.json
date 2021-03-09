@@ -1,0 +1,6 @@
+{
+	"provide": [
+		"codeql_modules/*/.codeqlmanifest.json",
+		"go/.codeqlmanifest.json"
+	]
+}
